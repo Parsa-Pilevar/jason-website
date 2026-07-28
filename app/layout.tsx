@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import Nav from "@/components/Nav"
+import { SanityLive } from "@/sanity/lib/live"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Nav />
         <main className="flex flex-1 flex-col">{children}</main>
+        <SanityLive />
       </body>
     </html>
   )

@@ -1,4 +1,4 @@
-import { Role } from "@/lib/content"
+import { Role } from "@/lib/types"
 
 export default function RoleList({ roles }: { roles: Role[] }) {
   return (

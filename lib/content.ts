@@ -1,22 +1,4 @@
-export type Publication = {
-  citation: string
-}
-
-export type PublicationGroup = {
-  heading: string
-  publications: Publication[]
-}
-
-export type Role = {
-  title: string
-  org: string
-  url?: string
-}
-
-export type WebLink = {
-  label: string
-  url: string
-}
+import type { WebLink, PublicationGroup, Role } from "./types"
 
 export const bio = {
   name: "Jason Grant-Rowles",

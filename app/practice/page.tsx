@@ -1,17 +1,25 @@
 import type { Metadata } from "next"
-import { practiceRoles } from "@/lib/content"
+import { sanityFetch } from "@/sanity/lib/live"
 import RoleList from "@/components/RoleList"
+import type { Role } from "@/lib/types"
 
 export const metadata: Metadata = {
   title: "Practice | Jason Grant-Rowles",
   description: "Clinical and professional roles held by Jason Grant-Rowles.",
 }
 
-export default function PracticePage() {
+const PRACTICE_QUERY = `*[_id == "practicePage"][0]{
+  roles[]{title, org, url}
+}`
+
+export default async function PracticePage() {
+  const { data } = await sanityFetch({ query: PRACTICE_QUERY })
+  const page = data as unknown as { roles: Role[] }
+
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
       <h1 className="text-3xl font-semibold tracking-tight text-black">Practice</h1>
-      <RoleList roles={practiceRoles} />
+      <RoleList roles={page.roles} />
     </div>
   )
 }

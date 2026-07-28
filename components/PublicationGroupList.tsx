@@ -1,4 +1,4 @@
-import { PublicationGroup } from "@/lib/content"
+import { PublicationGroup } from "@/lib/types"
 
 export default function PublicationGroupList({ groups }: { groups: PublicationGroup[] }) {
   return (

@@ -1,6 +1,30 @@
-import { bio } from "@/lib/content"
+import { PortableText, type PortableTextBlock } from "@portabletext/react"
+import { sanityFetch } from "@/sanity/lib/live"
 
-export default function Home() {
+const HOME_QUERY = `*[_id == "homePage"][0]{
+  name,
+  title,
+  institution,
+  department,
+  email,
+  links,
+  bio
+}`
+
+type HomeData = {
+  name: string
+  title?: string
+  institution?: string
+  department?: string
+  email?: string
+  links: { label: string; url: string }[]
+  bio: PortableTextBlock[]
+}
+
+export default async function Home() {
+  const { data } = await sanityFetch({ query: HOME_QUERY })
+  const bio = data as unknown as HomeData
+
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
       <h1 className="text-3xl font-semibold tracking-tight text-black">
@@ -27,10 +51,8 @@ export default function Home() {
       <h2 className="mt-10 text-xl font-semibold tracking-tight text-black">
         Who am I
       </h2>
-      <div className="mt-3 flex flex-col gap-4 text-zinc-700">
-        {bio.paragraphs.map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
+      <div className="mt-3 flex flex-col gap-4 text-zinc-700 [&_p]:leading-relaxed">
+        <PortableText value={bio.bio} />
       </div>
     </div>
   )
