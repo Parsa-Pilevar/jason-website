@@ -20,8 +20,8 @@ export default async function PublicationsPage() {
   const page = data as unknown as { groups: PublicationGroup[] }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight text-black">Publications</h1>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+      <h1 className="font-serif text-4xl text-ink">Publications</h1>
       <PublicationGroupList groups={page.groups} />
     </div>
   )

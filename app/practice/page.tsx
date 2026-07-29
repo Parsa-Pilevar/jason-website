@@ -17,8 +17,8 @@ export default async function PracticePage() {
   const page = data as unknown as { roles: Role[] }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight text-black">Practice</h1>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+      <h1 className="font-serif text-4xl text-ink">Practice</h1>
       <RoleList roles={page.roles} />
     </div>
   )

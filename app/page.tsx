@@ -26,32 +26,33 @@ export default async function Home() {
   const bio = data as unknown as HomeData
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight text-black">
-        {bio.name}
-      </h1>
-      <p className="mt-1 text-lg text-zinc-600">{bio.title}</p>
-      <p className="text-zinc-600">{bio.institution}</p>
-      <p className="text-zinc-600">{bio.department}</p>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+      <div className="fade-up">
+        <h1 className="font-serif text-4xl text-ink">{bio.name}</h1>
+        <p className="mt-2 text-muted">{bio.title}</p>
+        <p className="text-muted">
+          {[bio.institution, bio.department].filter(Boolean).join(" · ")}
+        </p>
 
-      <a href={`mailto:${bio.email}`} className="mt-2 inline-block text-sm text-zinc-500 hover:text-black">
-        {bio.email}
-      </a>
-
-      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-        {bio.links.map((link) => (
-          <li key={link.url}>
-            <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-zinc-500 underline underline-offset-2 hover:text-black">
+        <div className="mt-6 flex flex-wrap divide-x divide-hairline text-sm">
+          {bio.email && (
+            <a href={`mailto:${bio.email}`} className="pr-4 text-muted hover:text-accent">
+              {bio.email}
+            </a>
+          )}
+          {bio.links.map((link) => (
+            <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="px-4 first:pl-0 text-muted hover:text-accent">
               {link.label}
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
 
-      <h2 className="mt-10 text-xl font-semibold tracking-tight text-black">
-        Who am I
-      </h2>
-      <div className="mt-3 flex flex-col gap-4 text-zinc-700 [&_p]:leading-relaxed">
+      <div className="mt-14 flex items-center gap-2">
+        <span className="h-px w-6 bg-accent" aria-hidden="true" />
+        <h2 className="font-serif text-xl text-ink">Who I am</h2>
+      </div>
+      <div className="mt-4 flex max-w-[65ch] flex-col gap-4 text-ink/80 [&_p]:leading-relaxed">
         <PortableText value={bio.bio} />
       </div>
     </div>

@@ -13,9 +13,11 @@ export default async function CvPage() {
   const page = data as unknown as { note: string }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
-      <h1 className="text-3xl font-semibold tracking-tight text-black">CV</h1>
-      <p className="mt-6 text-zinc-600">{page.note}</p>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+      <h1 className="font-serif text-4xl text-ink">CV</h1>
+      <div className="mt-8 rounded border border-hairline bg-accent-wash/40 px-6 py-8 text-center text-muted">
+        {page.note}
+      </div>
     </div>
   )
 }
