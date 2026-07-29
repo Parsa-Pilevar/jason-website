@@ -1,17 +1,17 @@
-import { Role } from "@/lib/content"
+import { Role } from "@/lib/types"
 
 export default function RoleList({ roles }: { roles: Role[] }) {
   return (
-    <ul className="mt-6 flex flex-col gap-4">
+    <ul className="mt-6 divide-y divide-hairline">
       {roles.map((role) => (
-        <li key={role.title + role.org}>
-          <p className="font-medium text-black">{role.title}</p>
+        <li key={role.title + role.org} className="py-4 first:pt-0">
+          <p className="font-medium text-ink">{role.title}</p>
           {role.url ? (
-            <a href={role.url} target="_blank" rel="noopener noreferrer" className="text-zinc-600 underline underline-offset-2 hover:text-black">
+            <a href={role.url} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent">
               {role.org}
             </a>
           ) : (
-            <p className="text-zinc-600">{role.org}</p>
+            <p className="text-muted">{role.org}</p>
           )}
         </li>
       ))}
