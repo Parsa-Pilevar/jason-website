@@ -63,6 +63,13 @@ export const homePage = defineType({
     defineField({name: 'title', title: 'Title', type: 'string'}),
     defineField({name: 'institution', title: 'Institution', type: 'string'}),
     defineField({name: 'department', title: 'Department', type: 'string'}),
+    defineField({
+      name: 'photo',
+      title: 'Photo',
+      type: 'image',
+      options: {hotspot: true},
+      fields: [defineField({name: 'alt', title: 'Alt text', type: 'string'})],
+    }),
     defineField({name: 'email', title: 'Email', type: 'string'}),
     defineField({
       name: 'links',
