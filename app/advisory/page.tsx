@@ -17,7 +17,7 @@ export default async function AdvisoryPage() {
   const page = data as unknown as { roles: Role[] }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+    <div className="mx-auto w-full max-w-3xl px-6 py-16 lg:max-w-4xl lg:px-10 xl:max-w-5xl xl:px-16">
       <h1 className="fade-up font-serif text-4xl text-ink">Advisory</h1>
       <div className="fade-up-delay">
         <RoleList roles={page.roles} />

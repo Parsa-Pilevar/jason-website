@@ -13,7 +13,7 @@ export default async function ContactPage() {
   const page = data as unknown as { intro: string }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-16">
+    <div className="mx-auto w-full max-w-3xl px-6 py-16 lg:max-w-4xl lg:px-10 xl:max-w-5xl xl:px-16">
       <h1 className="fade-up font-serif text-4xl text-ink">Contact</h1>
       <div className="fade-up-delay">
         <p className="mt-4 max-w-[65ch] text-ink/80 leading-relaxed">{page.intro}</p>

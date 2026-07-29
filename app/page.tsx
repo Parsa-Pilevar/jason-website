@@ -1,5 +1,9 @@
 import { PortableText, type PortableTextBlock } from "@portabletext/react"
+import type { SanityImageSource } from "@sanity/image-url"
+import { FaRegEnvelope } from "react-icons/fa"
 import { sanityFetch } from "@/sanity/lib/live"
+import { urlFor } from "@/sanity/lib/image"
+import LinkIcon from "@/components/LinkIcon"
 
 const HOME_QUERY = `*[_id == "homePage"][0]{
   name,
@@ -8,7 +12,8 @@ const HOME_QUERY = `*[_id == "homePage"][0]{
   department,
   email,
   links,
-  bio
+  bio,
+  photo
 }`
 
 type HomeData = {
@@ -19,6 +24,7 @@ type HomeData = {
   email?: string
   links: { label: string; url: string }[]
   bio: PortableTextBlock[]
+  photo?: { alt?: string } & Record<string, unknown>
 }
 
 export default async function Home() {
@@ -26,25 +32,36 @@ export default async function Home() {
   const bio = data as unknown as HomeData
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-16">
-      <div className="fade-up">
-        <h1 className="font-serif text-4xl text-ink">{bio.name}</h1>
-        <p className="mt-2 text-muted">{bio.title}</p>
-        <p className="text-muted">
-          {[bio.institution, bio.department].filter(Boolean).join(" · ")}
-        </p>
+    <div className="mx-auto w-full max-w-3xl px-6 py-16 lg:max-w-4xl lg:px-10 xl:max-w-5xl xl:px-16">
+      <div className="fade-up flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        {bio.photo && (
+          <img
+            src={urlFor(bio.photo as unknown as SanityImageSource).width(360).height(480).fit("crop").url()}
+            alt={bio.photo.alt || bio.name}
+            className="aspect-[3/4] w-40 shrink-0 rounded border-2 border-accent-gold object-cover sm:w-48"
+          />
+        )}
+        <div>
+          <h1 className="font-serif text-4xl text-ink">{bio.name}</h1>
+          <p className="mt-2 text-muted">{bio.title}</p>
+          <p className="text-muted">
+            {[bio.institution, bio.department].filter(Boolean).join(" · ")}
+          </p>
 
-        <div className="mt-6 flex flex-wrap divide-x divide-hairline text-sm">
-          {bio.email && (
-            <a href={`mailto:${bio.email}`} className="pr-4 text-muted hover:text-accent">
-              {bio.email}
-            </a>
-          )}
-          {bio.links.map((link) => (
-            <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="px-4 first:pl-0 text-muted hover:text-accent">
-              {link.label}
-            </a>
-          ))}
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            {bio.email && (
+              <a href={`mailto:${bio.email}`} className="flex items-center gap-1.5 text-muted hover:text-accent">
+                <FaRegEnvelope className="h-4 w-4" aria-hidden="true" />
+                {bio.email}
+              </a>
+            )}
+            {bio.links.map((link) => (
+              <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-muted hover:text-accent">
+                <LinkIcon label={link.label} />
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 

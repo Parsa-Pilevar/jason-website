@@ -33,10 +33,10 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .fade-up {
-    animation: fade-up 0.26s ease-out both;
+    animation: fade-up 0.18s ease-out both;
   }
   .fade-up-delay {
-    animation: fade-up 0.26s ease-out 0.09s both;
+    animation: fade-up 0.18s ease-out 0.05s both;
   }
 }
 
