@@ -7,6 +7,8 @@
   --hairline: #dedad1;
   --accent: #2f4f44;
   --accent-wash: #edf1ee;
+  --accent-gold: #b8863a;
+  --accent-gold-wash: #f3e9d8;
 }
 
 @theme inline {
@@ -16,6 +18,8 @@
   --color-hairline: var(--hairline);
   --color-accent: var(--accent);
   --color-accent-wash: var(--accent-wash);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-wash: var(--accent-gold-wash);
   --font-serif: var(--font-newsreader);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
@@ -27,17 +31,19 @@ body {
   font-family: var(--font-sans);
 }
 
-/* guarded so motion-sensitive visitors just see the final state, no jump */
 @media (prefers-reduced-motion: no-preference) {
   .fade-up {
-    animation: fade-up 0.18s ease-out both;
+    animation: fade-up 0.26s ease-out both;
+  }
+  .fade-up-delay {
+    animation: fade-up 0.26s ease-out 0.09s both;
   }
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;

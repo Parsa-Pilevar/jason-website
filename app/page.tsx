@@ -48,12 +48,14 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="mt-14 flex items-center gap-2">
-        <span className="h-px w-6 bg-accent" aria-hidden="true" />
-        <h2 className="font-serif text-xl text-ink">Who I am</h2>
-      </div>
-      <div className="mt-4 flex max-w-[65ch] flex-col gap-4 text-ink/80 [&_p]:leading-relaxed">
-        <PortableText value={bio.bio} />
+      <div className="fade-up-delay">
+        <div className="mt-14 flex items-center gap-2">
+          <span className="h-px w-6 bg-accent" aria-hidden="true" />
+          <h2 className="font-serif text-xl text-ink">Who I am</h2>
+        </div>
+        <div className="mt-4 flex max-w-[65ch] flex-col gap-4 text-ink/80 [&_p]:leading-relaxed">
+          <PortableText value={bio.bio} />
+        </div>
       </div>
     </div>
   )

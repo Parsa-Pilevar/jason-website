@@ -18,8 +18,10 @@ export default async function PracticePage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-16">
-      <h1 className="font-serif text-4xl text-ink">Practice</h1>
-      <RoleList roles={page.roles} />
+      <h1 className="fade-up font-serif text-4xl text-ink">Practice</h1>
+      <div className="fade-up-delay">
+        <RoleList roles={page.roles} />
+      </div>
     </div>
   )
 }

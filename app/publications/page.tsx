@@ -21,8 +21,10 @@ export default async function PublicationsPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-16">
-      <h1 className="font-serif text-4xl text-ink">Publications</h1>
-      <PublicationGroupList groups={page.groups} />
+      <h1 className="fade-up font-serif text-4xl text-ink">Publications</h1>
+      <div className="fade-up-delay">
+        <PublicationGroupList groups={page.groups} />
+      </div>
     </div>
   )
 }
