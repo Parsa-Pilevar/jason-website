@@ -63,6 +63,7 @@ export const homePage = defineType({
     defineField({name: 'title', title: 'Title', type: 'string'}),
     defineField({name: 'institution', title: 'Institution', type: 'string'}),
     defineField({name: 'department', title: 'Department', type: 'string'}),
+    defineField({name: 'university', title: 'University', type: 'string'}),
     defineField({
       name: 'photo',
       title: 'Photo',

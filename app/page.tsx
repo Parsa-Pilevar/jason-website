@@ -10,6 +10,7 @@ const HOME_QUERY = `*[_id == "homePage"][0]{
   title,
   institution,
   department,
+  university,
   email,
   links,
   bio,
@@ -21,6 +22,7 @@ type HomeData = {
   title?: string
   institution?: string
   department?: string
+  university?: string
   email?: string
   links: { label: string; url: string }[]
   bio: PortableTextBlock[]
@@ -44,9 +46,9 @@ export default async function Home() {
         <div>
           <h1 className="font-serif text-4xl text-ink">{bio.name}</h1>
           <p className="mt-2 text-muted">{bio.title}</p>
-          <p className="text-muted">
-            {[bio.institution, bio.department].filter(Boolean).join(" · ")}
-          </p>
+          {[bio.institution, bio.department, bio.university].filter(Boolean).map((line) => (
+            <p key={line} className="text-muted">{line}</p>
+          ))}
 
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
             {bio.email && (
@@ -68,7 +70,7 @@ export default async function Home() {
       <div className="fade-up-delay">
         <div className="mt-14 flex items-center gap-2">
           <span className="h-px w-6 bg-accent" aria-hidden="true" />
-          <h2 className="font-serif text-xl text-ink">Who I am</h2>
+          <h2 className="font-serif text-xl text-ink">About me</h2>
         </div>
         <div className="mt-4 flex max-w-[65ch] flex-col gap-4 text-ink/80 [&_p]:leading-relaxed">
           <PortableText value={bio.bio} />
