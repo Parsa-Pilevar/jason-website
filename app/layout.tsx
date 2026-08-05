@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
 import Nav from "@/components/Nav"
+import Sidebar from "@/components/Sidebar"
 import { SanityLive } from "@/sanity/lib/live"
 import "./globals.css"
 
@@ -39,7 +40,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <Nav />
-        <main className="flex flex-1 flex-col">{children}</main>
+        <div className="flex flex-1 flex-col lg:flex-row">
+          <Sidebar />
+          <main className="flex flex-1 flex-col">{children}</main>
+        </div>
         <SanityLive />
       </body>
     </html>
