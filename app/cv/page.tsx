@@ -20,14 +20,14 @@ export default async function CvPage() {
       <h1 className="fade-up font-serif text-4xl text-ink">CV</h1>
       {page.cvFile?.asset?.url ? (
         <div className="fade-up-delay mt-8">
-          <a href="/cv/file"
+          <a href="/cv/Jason-Grant-Rowles-CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="mb-3 inline-block text-sm text-muted hover:text-accent"
           >
             Open full CV in new tab
           </a>
-          <iframe src="/cv/file"
+          <iframe src="/cv/Jason-Grant-Rowles-CV.pdf"
             title="Jason Grant-Rowles CV"
             className="h-[80vh] w-full rounded border border-hairline bg-paper"
           />
