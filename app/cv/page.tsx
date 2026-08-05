@@ -23,10 +23,14 @@ export default async function CvPage() {
           <a href={page.cvFile.asset.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded border border-hairline bg-accent-wash/40 px-6 py-3 text-ink hover:text-accent"
+            className="mb-3 inline-block text-sm text-muted hover:text-accent"
           >
-            Download CV
+            Open full CV in new tab
           </a>
+          <iframe src={page.cvFile.asset.url}
+            title="Jason Grant-Rowles CV"
+            className="h-[80vh] w-full rounded border border-hairline bg-paper"
+          />
         </div>
       ) : (
         <div className="fade-up-delay mt-8 rounded border border-hairline bg-accent-wash/40 px-6 py-8 text-center text-muted">
