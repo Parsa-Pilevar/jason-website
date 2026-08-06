@@ -38,11 +38,11 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+      <body className="min-h-full flex flex-col bg-paper text-ink lg:h-screen lg:overflow-hidden">
         <Nav />
-        <div className="flex flex-1 flex-col lg:flex-row">
+        <div className="flex flex-1 flex-col lg:flex-row lg:min-h-0">
           <Sidebar />
-          <main className="flex flex-1 flex-col">{children}</main>
+          <main className="flex flex-1 flex-col lg:min-h-0 lg:overflow-y-auto">{children}</main>
         </div>
         <SanityLive />
       </body>
