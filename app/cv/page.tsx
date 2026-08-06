@@ -27,7 +27,7 @@ export default async function CvPage() {
           >
             Open full CV in new tab
           </a>
-          <iframe src="/cv/Jason-Grant-Rowles-CV.pdf"
+          <iframe src="/cv/Jason-Grant-Rowles-CV.pdf#view=FitH"
             title="Jason Grant-Rowles CV"
             className="h-[80vh] w-full rounded border border-hairline bg-paper"
           />
