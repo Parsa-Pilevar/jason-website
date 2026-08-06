@@ -31,7 +31,7 @@ export default async function Sidebar() {
   const profile = data as unknown as SidebarData
 
   return (
-    <aside className="w-full shrink-0 border-hairline px-6 py-10 lg:w-80 lg:border-r lg:px-10 lg:py-20">
+    <aside className="w-full shrink-0 border-hairline px-6 pt-6 pb-10 lg:w-80 lg:border-r lg:px-10 lg:pt-10 lg:pb-20">
       <div className="flex flex-col">
         {profile.photo && (
           <img src={urlFor(profile.photo as unknown as SanityImageSource).width(360).height(480).fit("crop").url()}
