@@ -33,11 +33,11 @@ export default function ContactForm() {
       <input type="hidden" name="_gotcha" />
       <div className="flex flex-col gap-1">
         <label htmlFor="name" className="text-xs uppercase tracking-[0.08em] text-muted">Name</label>
-        <input id="name" name="name" type="text" className="border-b border-hairline bg-transparent py-2 text-ink focus:border-accent focus:outline-none" />
+        <input id="name" name="name" type="text" autoComplete="name" className="border-b border-hairline bg-transparent py-2 text-ink focus:border-accent focus:outline-none" />
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="email" className="text-xs uppercase tracking-[0.08em] text-muted">Email</label>
-        <input id="email" name="email" type="email" className="border-b border-hairline bg-transparent py-2 text-ink focus:border-accent focus:outline-none" />
+        <input id="email" name="email" type="email" autoComplete="email" className="border-b border-hairline bg-transparent py-2 text-ink focus:border-accent focus:outline-none" />
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="message" className="text-xs uppercase tracking-[0.08em] text-muted">Message</label>
@@ -46,7 +46,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-2 w-fit border-b border-accent pb-1 text-sm font-medium text-accent hover:text-ink hover:border-ink disabled:opacity-50"
+        className="mt-2 w-fit border-b border-accent px-1 py-2 text-sm font-medium text-accent transition-colors duration-200 hover:text-ink hover:border-ink disabled:opacity-50"
       >
         {status === "sending" ? "Sending..." : "Send"}
       </button>

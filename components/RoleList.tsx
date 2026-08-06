@@ -7,7 +7,7 @@ export default function RoleList({ roles }: { roles: Role[] }) {
         <li key={role.title + role.org} className="py-4 first:pt-0">
           <p className="font-medium text-ink">{role.title}</p>
           {role.url ? (
-            <a href={role.url} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent">
+            <a href={role.url} target="_blank" rel="noopener noreferrer" className="text-muted transition-colors duration-200 hover:text-accent">
               {role.org}
             </a>
           ) : (
