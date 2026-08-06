@@ -43,3 +43,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local files, not part of the project
+Updated CV.pdf
+Updated CV.pdf:Zone.Identifier
