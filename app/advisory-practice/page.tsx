@@ -25,6 +25,7 @@ export default async function AdvisoryPracticePage() {
           <h2 className="text-xs font-medium uppercase tracking-[0.08em] text-accent">Practice</h2>
           <RoleList roles={page.practice.roles} />
         </div>
+        <div className="h-px w-12 bg-accent-gold" aria-hidden="true" />
         <div>
           <h2 className="text-xs font-medium uppercase tracking-[0.08em] text-accent">Advisory</h2>
           <RoleList roles={page.advisory.roles} />
