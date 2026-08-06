@@ -32,20 +32,19 @@ export default async function Sidebar() {
 
   return (
     <aside className="w-full shrink-0 border-hairline px-6 py-10 lg:w-80 lg:border-r lg:px-10 lg:py-20">
-      <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+      <div className="flex flex-col">
         {profile.photo && (
-          <img
-            src={urlFor(profile.photo as unknown as SanityImageSource).width(360).height(480).fit("crop").url()}
+          <img src={urlFor(profile.photo as unknown as SanityImageSource).width(360).height(480).fit("crop").url()}
             alt={profile.photo.alt || profile.name}
-            className="aspect-[3/4] w-40 rounded border-2 border-accent-gold object-cover"
+            className="mx-auto aspect-[3/4] w-40 rounded border-2 border-accent-gold object-cover"
           />
         )}
-        <h1 className="mt-5 font-serif text-2xl text-ink">{profile.name}</h1>
-        <p className="mt-1 text-sm text-muted">{profile.title}</p>
+        <h1 className="mt-5 text-left font-serif text-2xl text-ink">{profile.name}</h1>
+        <p className="mt-1 text-left text-sm text-muted">{profile.title}</p>
         {[profile.institution, profile.department, profile.university].filter(Boolean).map((line) => (
-          <p key={line} className="text-sm text-muted">{line}</p>
+          <p key={line} className="text-left text-sm text-muted">{line}</p>
         ))}
-        <div className="mt-5 flex flex-col items-center gap-2 text-sm lg:items-start">
+        <div className="mt-5 flex flex-col items-start gap-2 text-sm">
           {profile.email && (
             <a href={`mailto:${profile.email}`} className="flex items-center gap-1.5 text-muted hover:text-accent">
               <FaRegEnvelope className="h-4 w-4" aria-hidden="true" />
