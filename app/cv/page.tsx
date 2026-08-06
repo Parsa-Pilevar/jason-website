@@ -23,13 +23,13 @@ export default async function CvPage() {
           <a href="/cv/Jason-Grant-Rowles-CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-3 inline-block text-sm text-muted hover:text-accent"
+            className="mb-3 inline-block rounded border border-accent px-5 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-paper lg:border-0 lg:px-0 lg:py-0 lg:font-normal lg:text-muted lg:hover:bg-transparent lg:hover:text-accent"
           >
             Open full CV in new tab
           </a>
           <iframe src="/cv/Jason-Grant-Rowles-CV.pdf#view=FitH"
             title="Jason Grant-Rowles CV"
-            className="h-[80vh] w-full rounded border border-hairline bg-paper"
+            className="hidden h-[80vh] w-full rounded border border-hairline bg-paper lg:block"
           />
         </div>
       ) : (
